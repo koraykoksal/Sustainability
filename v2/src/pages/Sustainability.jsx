@@ -7,12 +7,6 @@ import { homePageStyle } from '../styles/globalStlye';
 import Sustainability_Modal from '../components/modals/Sustainability_Modal';
 import { format } from "date-fns"
 import Sustainability_Data from '../components/Sustainability_Data';
-import img1 from "../assets/pics/prosesler-enerji.png"
-import img2 from "../assets/pics/tasitlarda-enerji-verimliliği.png"
-import img3 from "../assets/pics/ofislerde-enerji-verimliligi.png"
-import img4 from "../assets/pics/sosyal-kapsam.png"
-import img5 from "../assets/pics/dongusellik.png"
-import img6 from "../assets/pics/sanayide-enerji-verimliligi.png"
 import { NotFound } from './NotFound';
 
 const Sustainability = () => {
