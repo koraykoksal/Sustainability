@@ -1,0 +1,32 @@
+{
+  "files": {
+    "main.css": "/static/css/main.16206445.css",
+    "main.js": "/static/js/main.2779405d.js",
+    "static/media/world.svg": "/static/media/world.9173c9ef418cc1f03328f2a87ced4bb3.svg",
+    "static/media/bg1.png": "/static/media/bg1.1aca7afe0e7cc9252475.png",
+    "static/media/loginImg.png": "/static/media/loginImg.ebe7f7cc375d3329eb35.png",
+    "static/media/sosyal-kapsam.png": "/static/media/sosyal-kapsam.7122fb82d68c50f3cb25.png",
+    "static/media/tasitlarda-enerji-verimliliği.png": "/static/media/tasitlarda-enerji-verimliliği.618a8b7598c6822896bb.png",
+    "static/media/ofislerde-enerji-verimliligi.png": "/static/media/ofislerde-enerji-verimliligi.1f35d4290b4c771c513f.png",
+    "static/media/prosesler-enerji.png": "/static/media/prosesler-enerji.3bce692fbe695b63f75f.png",
+    "static/media/omur-boyu.png": "/static/media/omur-boyu.91b015eff0b94344ef4b.png",
+    "static/media/sanayide-enerji-verimliligi.png": "/static/media/sanayide-enerji-verimliligi.822c32fbb70697b601f4.png",
+    "static/media/dongusellik.png": "/static/media/dongusellik.c4bafc1ef8b52b6f0104.png",
+    "static/media/bg2.png": "/static/media/bg2.403d5ab4b0c82e84f191.png",
+    "static/media/yarinadakalsin.png": "/static/media/yarinadakalsin.ae7e45da4ab1e809bf6c.png",
+    "static/media/logoBSustainability.png": "/static/media/logoBSustainability.0b72be71386ee63a6648.png",
+    "static/media/bg3.png": "/static/media/bg3.71d816709458bf79c9b3.png",
+    "static/media/bg4.png": "/static/media/bg4.cc528468646abd2f6958.png",
+    "static/media/logobonna_w.png": "/static/media/logobonna_w.13dbfffab19d4d95d459.png",
+    "static/media/404.png": "/static/media/404.a701b2f217e6d7dcca54.png",
+    "static/media/modalimg1.svg": "/static/media/modalimg1.a969d5b710f910231ec616922db7b494.svg",
+    "index.html": "/index.html",
+    "static/media/greenLine.svg": "/static/media/greenLine.c80baa91781a5e10251f580e95b1e82d.svg",
+    "main.16206445.css.map": "/static/css/main.16206445.css.map",
+    "main.2779405d.js.map": "/static/js/main.2779405d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.16206445.css",
+    "static/js/main.2779405d.js"
+  ]
+}
