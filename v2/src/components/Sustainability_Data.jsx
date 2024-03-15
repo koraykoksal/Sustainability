@@ -2,7 +2,7 @@ import React from 'react'
 import { Box, Button, Card, CardContent, CardMedia, Container, Typography } from '@mui/material'
 import { useState, useEffect } from 'react'
 import img1 from "../assets/pics/prosesler-enerji.png"
-import img2 from "../assets/pics/tasitlarda-enerji-verimliliği.png"
+import img2 from "../assets/pics/tasitlarda-enerji-verimliligi.png"
 import img3 from "../assets/pics/ofislerde-enerji-verimliligi.png"
 import img4 from "../assets/pics/sosyal-kapsam.png"
 import img5 from "../assets/pics/dongusellik.png"
