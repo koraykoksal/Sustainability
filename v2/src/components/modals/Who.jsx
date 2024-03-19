@@ -1,24 +1,27 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
-import { Typography, Grid, Container, TextField, FormControl, Select, FormLabel, InputLabel, MenuItem, Button } from "@mui/material"
+import { Typography, Grid, Container, TextField, FormControl, Select, FormLabel, InputLabel, MenuItem, Button, FormControlLabel, Checkbox } from "@mui/material"
 import { IoMdCloseCircle } from "react-icons/io";
 import { modalStyles } from '../../styles/globalStlye';
-import { departments } from "../../helper/data"
+import { departments, userType } from "../../helper/data"
 import bonnaLogoGreen from "../../assets/img/logoBSustainability.png"
 import { IoPersonAddOutline } from "react-icons/io5";
 // import { useNavigate } from 'react-router';
 import { useNavigate } from 'react-router-dom';
 
 
-const Who = ({ open, HandleClose, handleChange, info }) => {
+const Who = ({ open, HandleClose, handleChange, info, setInfo, setBonnaUser, bonnaUser, handleIsCheck }) => {
 
-    const navigate =useNavigate()
+
+    const navigate = useNavigate()
 
     const handleSubmit = (e) => {
         e.preventDefault()
         navigate(`/sustainability`, { state: info, id: info.id })
     }
+
+
 
     return (
         <div>
@@ -47,7 +50,7 @@ const Who = ({ open, HandleClose, handleChange, info }) => {
                                 name='name'
                                 id='name'
                                 type='text'
-                                label='Name'
+                                label='Ad'
                                 value={info.name}
                                 onChange={handleChange}
                                 sx={{ color: 'white' }}
@@ -58,7 +61,7 @@ const Who = ({ open, HandleClose, handleChange, info }) => {
                                 name='surname'
                                 id='surname'
                                 type='text'
-                                label='Surname'
+                                label='Soyad'
                                 value={info.surname}
                                 onChange={handleChange}
                                 sx={{ color: 'white' }}
@@ -69,7 +72,7 @@ const Who = ({ open, HandleClose, handleChange, info }) => {
                                 name='email'
                                 id='email'
                                 type='email'
-                                label='Email'
+                                label='Mail'
                                 value={info.email}
                                 onChange={handleChange}
                                 sx={{ color: 'white' }}
@@ -80,40 +83,94 @@ const Who = ({ open, HandleClose, handleChange, info }) => {
                                 name='tel'
                                 id='tel'
                                 type='tel'
-                                label='Phone'
+                                label='Telefon'
                                 value={info.tel}
                                 onChange={handleChange}
                                 sx={{ color: 'white' }}
                             />
-                            <FormControl fullWidth>
-                                <InputLabel id='Department'>Department</InputLabel>
-                                <Select
-                                    required
-                                    name='birim'
-                                    id='birim'
-                                    labelId='birim'
-                                    label='Department'
-                                    value={info.birim}
-                                    onChange={handleChange}
-                                    MenuProps={{
-                                        PaperProps: {
-                                            style: {
-                                                maxHeight: 300,
-                                                overflow: 'auto'
+
+
+
+                            {
+                                info.bonnaUsr == false ?
+                                    (
+                                        <FormControl fullWidth>
+                                            <InputLabel id='userType'>Tip</InputLabel>
+                                            <Select
+                                                required
+                                                name='userType'
+                                                id='userType'
+                                                labelId='userType'
+                                                label='Tip'
+                                                value={info.userType}
+                                                onChange={handleChange}
+                                                MenuProps={{
+                                                    PaperProps: {
+                                                        style: {
+                                                            maxHeight: 300,
+                                                            overflow: 'auto'
+                                                        }
+                                                    }
+                                                }}
+                                            >
+
+                                                {
+                                                    userType.map((item, index) => (
+                                                        <MenuItem key={index} value={item.name} sx={{ height: 50 }}>{item.name}</MenuItem>
+                                                    ))
+                                                }
+                                            </Select>
+                                        </FormControl>
+                                    )
+                                    :
+                                    (
+                                        ""
+                                    )
+                            }
+
+                            <FormControlLabel
+                                control={
+                                    <Checkbox onChange={handleIsCheck} name="bonnaUsr" />
+                                }
+                                label="Bonna çalışanı mısın ?"
+                            />
+
+                            {
+                                info.bonnaUsr &&
+                                (
+                                    <FormControl fullWidth>
+                                        <InputLabel id='Department'>Department</InputLabel>
+                                        <Select
+                                            required
+                                            name='birim'
+                                            id='birim'
+                                            labelId='birim'
+                                            label='Department'
+                                            value={info.birim}
+                                            onChange={handleChange}
+                                            MenuProps={{
+                                                PaperProps: {
+                                                    style: {
+                                                        maxHeight: 300,
+                                                        overflow: 'auto'
+                                                    }
+                                                }
+                                            }}
+                                        >
+
+                                            {
+                                                departments.map((item, index) => (
+                                                    <MenuItem key={index} value={item.name} sx={{ height: 50 }}>{item.name}</MenuItem>
+                                                ))
                                             }
-                                        }
-                                    }}
-                                >
+                                        </Select>
+                                    </FormControl>
+                                )
+                            }
 
-                                    {
-                                        departments.map((item, index) => (
-                                            <MenuItem key={index} value={item.name} sx={{ height: 50 }}>{item.name}</MenuItem>
-                                        ))
-                                    }
-                                </Select>
-                            </FormControl>
 
-                            <Button variant='contained' type='submit'>Submit</Button>
+
+                            <Button variant='contained' type='submit' sx={{ letterSpacing: 3 }}>Devam Et</Button>
                         </Box>
 
                     </Container>

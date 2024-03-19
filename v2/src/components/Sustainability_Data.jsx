@@ -16,7 +16,7 @@ const urlData = [
         icon: img3,
     },
     {
-        title: "Prosesler Boyunca Enerji Verimliliği",
+        title: "Üretim boyunca Enerji Verimliliği",
         url: "/prosesenerjiverimliligi",
         icon: img1,
     },
@@ -27,17 +27,17 @@ const urlData = [
     },
 
     {
-        title: "Sosyal Kapsam",
+        title: "Sosyal Kapsam ve İnsan",
         url: "/sosyalkapsam",
         icon: img4,
     },
     {
-        title: "Döngüsellik",
+        title: "Döngüsellik, Geri Dönüşüm, Atık Yönetimi",
         url: "/dongusellik",
         icon: img5,
     },
     {
-        title: "Sanayide Enerji Verimliliği",
+        title: "Diğer",
         url: "/sanayideenerjiverimliligi",
         icon: img6,
     },
@@ -64,7 +64,7 @@ const Sustainability = ({ setInfo, HandleOpen }) => {
                 letterSpacing={3}
                 fontFamily={'Catamaran'}
             >
-                Lütfen sürdürülebilirlik fikrinizi seçiniz.
+                Bizimle paylaşacağınız fikir hangi alanda ise üzerini tıklayınız.
             </Typography>
 
             <Box sx={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: 10, p: 5 }}>
@@ -72,11 +72,11 @@ const Sustainability = ({ setInfo, HandleOpen }) => {
                 {
                     urlData.map((item, index) => (
 
-                        <Box key={index} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 5 }}>
+                        <Box key={index} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 1 }}>
 
-                            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 5, alignItems: 'center', p: 5 }}>
+                            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2, alignItems: 'center', p: 2 }}>
 
-                                <img src={item.icon} alt="Logo" loading='lazy' width={300} className='sustainabilityIcon' onClick={() => handleClick(item.title)} />
+                                <img src={item.icon} alt="Logo" loading='lazy' width={220} className='sustainabilityIcon' onClick={() => handleClick(item.title)} />
 
                                 <Button variant='outlined' color='success' sx={{ textTransform: 'none', fontSize: '18px', fontFamily: 'Catamaran' }} onClick={() => { handleClick(item.title) }}>{item.title}</Button>
 

@@ -12,20 +12,13 @@ import { uid } from "uid";
 
 export const Home = () => {
 
+
+  const [bonnaUser, setBonnaUser] = useState(false)
+
   function dateFormat() {
     const now = new Date();
     return format(now, 'dd-MM-yyyy HH:mm')
   }
-
-  const [info, setInfo] = useState({
-    id: uid(),
-    name: "",
-    surname: "",
-    email: "",
-    tel: "",
-    birim: "",
-    createdDate: dateFormat()
-  })
 
 
   const [open, setOpen] = useState(false);
@@ -38,7 +31,32 @@ export const Home = () => {
     setInfo({ ...info, [name]: value })
   }
 
+  const handleIsCheck = (e,param) => {
+    const { checked } = e.target
+    if(checked){
+      //bonnaUsr bilgisi true ise type bilgisi silinir.Type bilgisi müşteri, tedarikçi ve diğer kişiler için geçerlidir.
+      setInfo({...info,['bonnaUsr']:checked,['userType']:""}) 
+    }
+    else{
+      setInfo({...info,['bonnaUsr']:checked})
+    }
+ 
+  }
 
+  const [info, setInfo] = useState({
+    id: uid(),
+    name: "",
+    surname: "",
+    email: "",
+    tel: "",
+    birim: "",
+    userType:"",
+    bonnaUsr: false,
+    createdDate: dateFormat()
+  })
+
+
+  
 
   return (
 
@@ -51,7 +69,7 @@ export const Home = () => {
 
           {/* omur boyu */}
           <Box width={350} alignItems={'center'} display={'flex'}>
-            <img src={omurboyu} width={'100%'} style={{ objectFit: 'cover' }} />
+            <img src={yarinadakalsin} width={'100%'} style={{ objectFit: 'cover' }} />
           </Box>
 
           {/* kendini tanıt */}
@@ -69,7 +87,7 @@ export const Home = () => {
 
           {/* yarına kalsın */}
           <Box width={350} alignItems={'center'} display={'flex'}>
-            <img src={yarinadakalsin} width={'100%'} style={{ objectFit: 'cover' }} />
+            <img src={omurboyu} width={'100%'} style={{ objectFit: 'cover' }} />
           </Box>
 
         </Box>
@@ -78,7 +96,7 @@ export const Home = () => {
 
 
       {/* modal */}
-      <Who open={open} HandleClose={HandleClose} info={info} handleChange={handleChange} />
+      <Who open={open} HandleClose={HandleClose} info={info} setInfo={setInfo} handleChange={handleChange} handleIsCheck={handleIsCheck} bonnaUser={bonnaUser} setBonnaUser={setBonnaUser} />
 
     </div>
 

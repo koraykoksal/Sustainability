@@ -64,6 +64,18 @@ export const katkiKonusu=[
 
 ]
 
+export const userType=[
+    {
+        name:"Müşteri"
+    },
+    {
+        name:"Tedarikçi"
+    },
+    {
+        name:"Diğer"
+    }
+]
+
 export const actionTypes=[
     "Değerlendirmeye Alındı",
     "Değerlendirme Aşamasında",
