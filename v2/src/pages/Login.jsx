@@ -18,6 +18,7 @@ import { loginPageStyle } from '../styles/globalStlye'
 const Login = () => {
 
 
+  const navigate =useNavigate()
   const [info, setInfo] = useState({
     email: "",
     password: ""
@@ -165,6 +166,12 @@ const Login = () => {
             />
             <Button variant="contained" type="submit" sx={{ letterSpacing: 5, textTransform: 'none' }}>
               Giriş
+            </Button>
+
+            <Button color='success' variant="contained" type="submit" sx={{ letterSpacing: 5, textTransform: 'none' }}
+            onClick={()=>navigate('/')}
+            >
+              Home
             </Button>
 
           </Box>
