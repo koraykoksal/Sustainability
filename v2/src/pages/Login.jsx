@@ -13,7 +13,6 @@ import { object, string } from "yup"
 import useAuthCall from '../hooks/useAuthCall'
 import { useState } from 'react'
 import { IoHome } from "react-icons/io5";
-import image from "../assets/img/loginImg.png"
 import { loginPageStyle } from '../styles/globalStlye'
 
 const Login = () => {
@@ -45,7 +44,7 @@ const Login = () => {
   return (
 
     <div style={loginPageStyle}>
-      <Container sx={{ mt: 15 }}>
+      {/* <Container sx={{ mt: 15 }}>
 
         <Grid
           container
@@ -111,14 +110,76 @@ const Login = () => {
 
           </Grid>
 
-          <Grid item xs={10} sm={8} md={5}>
-            <Container>
-              <img src={image} alt="img" />
-            </Container>
-          </Grid>
-
         </Grid>
-      </Container>
+      </Container> */}
+
+      <Box sx={{ display: 'flex', justifyContent: 'center', gap: 5, height: '100vh', overflow: 'auto', alignItems: 'center' }}>
+
+
+
+
+        <Container maxWidth='sm'>
+
+          <Avatar
+            sx={{
+              backgroundColor: "secondary.light",
+              m: "auto",
+              width: 40,
+              height: 40,
+            }}
+          >
+            <LockIcon size="30" />
+          </Avatar>
+
+
+          <Typography
+            variant="h4"
+            align="center"
+            mb={4}
+            color="secondary.light"
+          >
+            Login
+          </Typography>
+
+
+          <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }} component='form' onSubmit={handleSubmit}>
+            <TextField
+              required
+              label="E-Posta"
+              name="email"
+              id="email"
+              type="text"
+              variant="outlined"
+              value={info.email}
+              onChange={handleChange}
+            />
+            <TextField
+              required
+              label="Parola"
+              name="password"
+              id="password"
+              type="password"
+              variant="outlined"
+              value={info.password}
+              onChange={handleChange}
+            />
+            <Button variant="contained" type="submit" sx={{ letterSpacing: 5, textTransform: 'none' }}>
+              Giriş
+            </Button>
+
+          </Box>
+
+
+
+
+
+        </Container>
+
+
+
+      </Box>
+
+
     </div>
 
   )

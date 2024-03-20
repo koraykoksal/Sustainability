@@ -34,7 +34,32 @@ const pages = [
 
 ];
 
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const reporPages = [
+  {
+    title: "Ofislerde Enerji Verimliliği",
+    url: '/ofislerdeEnerjiVerimliligi'
+  },
+  {
+    title: "Üretim Boyunca Enerji Verimliliği",
+    url: '/uretimBoyuncaEnerjiVerimliligi'
+  },
+  {
+    title: "Taşıtlarda Enerji Verimliliği",
+    url: '/tasitlardaEnerjiVerimliligi'
+  },
+  {
+    title: "Sosyal Kpsam ve İnsan",
+    url: '/sosyalKapsamVeInsan'
+  },
+  {
+    title: "Döngüsellik-Geri Dönüşüm-Atık Yönetimi",
+    url: '/dongusellikGeriDonusumAtikYonetimi'
+  },
+  {
+    title: "Diğer",
+    url: '/diger'
+  }
+];
 
 const NavBar = () => {
 
@@ -62,9 +87,16 @@ const NavBar = () => {
     setAnchorElUser(null);
   };
 
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
 
-  //#141893
-  //#588247
+
 
   return (
 
@@ -115,17 +147,22 @@ const NavBar = () => {
                     display: { xs: 'block', md: 'none' },
                   }}
                 >
+                  <Button onClick={
+                    () => {
+                      navigate('/')
+                      handleCloseNavMenu()
+                    }} sx={{ width: '100%', textTransform: 'none', fontSize: 11 }}>Home</Button>
                   {
-                    pages.map((page, index) => (
+                    reporPages.map((page, index) => (
                       <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-                        <Button sx={{ textTransform: 'none', color: 'black' }} key={index} onClick={() => {
-                          navigate(page.url)
+                        <Button sx={{ textTransform: 'none', color: 'black', fontSize: 11 }} key={index} onClick={() => {
+                          navigate(page.url,{state:page})
                           handleCloseNavMenu()
                         }}>{page.title}</Button>
                       </Box>
                     ))
                   }
-                  <Button onClick={() => logout()} sx={{ width: '100%', textTransform: 'none', color: 'red' }}>Çıkış</Button>
+                  <Button onClick={() => logout()} sx={{ width: '100%', textTransform: 'none', color: 'red', fontSize: 11 }}>Çıkış</Button>
                 </Menu>
               </Box>
             )
@@ -138,18 +175,43 @@ const NavBar = () => {
             currentUser &&
             (
               <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-                {pages.map((page, index) => (
-                  <Button
-                    key={index}
-                    onClick={() => {
-                      navigate(page.url)
-                      handleCloseNavMenu()
-                    }}
-                    sx={{ my: 2, color: 'white', display: 'block', textTransform: 'none' }}
-                  >
-                    {page.title}
+                <Box sx={{ display: 'flex', justifyContent: 'center', gap: 3 }}>
+                  <Button onClick={() => navigate('/')} sx={{ my: 2, color: 'white', display: 'block', textTransform: 'none' }}>
+                    Ana Sayfa
                   </Button>
-                ))}
+                  <Button
+                    sx={{ my: 2, color: 'white', display: 'block', textTransform: 'none' }}
+                    id="fade-button"
+                    aria-controls={open ? 'fade-menu' : undefined}
+                    aria-haspopup="true"
+                    aria-expanded={open ? 'true' : undefined}
+                    onClick={handleClick}
+                  >
+                    Rapor
+                  </Button>
+                  <Menu
+                    id="fade-menu"
+                    MenuListProps={{
+                      'aria-labelledby': 'fade-button',
+                    }}
+                    anchorEl={anchorEl}
+                    open={open}
+                    onClose={handleClose}
+                  >
+                    {
+                      reporPages.map((item, index) => (
+                        <MenuItem sx={{fontSize:14}} key={index}
+                          onClick={
+                            () => {
+                              navigate(item.url,{state:item})
+                              handleClose()
+                            }
+                          }>{item.title}</MenuItem>
+                      ))
+                    }
+                  </Menu>
+                </Box>
+
               </Box>
             )
           }
@@ -158,12 +220,7 @@ const NavBar = () => {
             currentUser && <Box sx={{ display: { xs: 'none', md: 'flex' }, justifyContent: 'center', gap: 3, mr: 1 }}>
               <Typography>{currentUser}</Typography>
               <IoIosLogOut size={25} color='#B31312' cursor='pointer' onClick={() => logout()} />
-
             </Box>
-
-            // <Box sx={{ display: { xs: 'flex', md: 'flex' } }}>
-            //   <AiFillHome size={25} color='#527853' onClick={() => navigate('/')} cursor='pointer' />
-            // </Box>
           }
 
 

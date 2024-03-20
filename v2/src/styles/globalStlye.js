@@ -2,10 +2,16 @@ import pattern1 from "../assets/img/bg1.png"
 import pattern2 from "../assets/img/bg2.png"
 import pattern3 from "../assets/img/bg3.png"
 import pattern4 from "../assets/img/bg4.png"
+import pattern5 from "../assets/img/bg5.png"
 import img1 from "../assets/pics/world.svg"
 import img2 from "../assets/pics/modalimg1.svg"
 import greenLine from "../assets/pics/greenLine.svg"
 
+
+export  const colors={
+  mavi:'#141893',
+  yesil:'#588247'
+}
 
 export const modalStyles = {
 
@@ -59,9 +65,10 @@ export const loginPageStyle={
     width: "100%",
     height: "100vh",
     overflow:'auto',
-    backgroundImage: `url(${pattern1})`,
-    backgroundPosition: "center",
-    backgroundSize: "cover",
-    backgroundRepeat: "no-repeat",
+    backgroundColor:'#F5F5FF',
+    // backgroundImage: `url(${pattern5})`,
+    // backgroundPosition: "left",
+    // backgroundSize: "contain",
+    // backgroundRepeat: "no-repeat",
 }
 

@@ -4,13 +4,13 @@ import { useDispatch, useSelector } from 'react-redux'
 import axios from 'axios'
 import { toastInfoNotify, toastSuccessNotify, toastErrorNotify, toastWarnNotify } from '../helper/ToastNotify'
 import { ref, getStorage, getDownloadURL, getMetadata, listAll, list, deleteObject, uploadBytes } from "firebase/storage"
-import { doc, setDoc, Timestamp, collection, addDoc, getDocs, getDoc } from "firebase/firestore";
+import { doc, setDoc, Timestamp, collection, addDoc, getDocs, getDoc, onSnapshot } from "firebase/firestore";
 import { db } from "../db/firebase_db"
 import { getDatabase, onValue, ref as dbRef, remove, set, update } from "firebase/database";
 import { uid } from "uid";
 import { useState } from 'react';
 import { useNavigate } from "react-router-dom"
-import { fetchStart } from '../features/sustainabilitySlice';
+import { fetchStart, fetchSustainabilityData } from '../features/sustainabilitySlice';
 
 
 const useSusCall = () => {
@@ -69,10 +69,46 @@ const useSusCall = () => {
 
             await set(dbRef(db, `sustainability/${susData.title}/` + uID), susData)
             toastSuccessNotify('Kayıt yapılmıştır.')
-            navigate('/',{state:{}})
+            navigate('/', { state: {} })
 
         } catch (error) {
             console.log("postDataFireBase :", error)
+        }
+    }
+
+
+
+
+    const get_DataFromFirebase = async (address) => {
+
+        dispatch(fetchStart())
+
+        try {
+
+            const db = getDatabase()
+            const refs = dbRef(db, `sustainability/${address}`)
+            onValue(refs, (snapShot) => {
+
+                const data = snapShot.val();
+              
+                if (data != null || data != undefined) {
+
+                    const result = Object.keys(data).map(key => ({ id: key, ...data[key] }));
+                    console.log(result)
+                    dispatch(fetchSustainabilityData(result))
+                }
+                else{
+                    dispatch(fetchSustainabilityData([]))
+                    toastWarnNotify('Kayıt Bulunmuyor !')
+                }
+
+
+
+            })
+
+
+        } catch (error) {
+            console.log("get_DataFromFirebase: ", error)
         }
     }
 
@@ -95,6 +131,7 @@ const useSusCall = () => {
         post_AllData_to_FireBase,
         post_OnlyData_to_Firebase,
         removeFirebaseData,
+        get_DataFromFirebase
 
     }
 
