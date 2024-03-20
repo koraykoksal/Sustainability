@@ -38,7 +38,7 @@ export const Home = () => {
       setInfo({...info,['bonnaUsr']:checked,['userType']:""}) 
     }
     else{
-      setInfo({...info,['bonnaUsr']:checked})
+      setInfo({...info,['bonnaUsr']:checked,['birim']:""})
     }
  
   }
@@ -56,6 +56,7 @@ export const Home = () => {
   })
 
 
+  console.log(info)
   
 
   return (

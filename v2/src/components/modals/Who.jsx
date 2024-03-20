@@ -139,13 +139,13 @@ const Who = ({ open, HandleClose, handleChange, info, setInfo, setBonnaUser, bon
                                 info.bonnaUsr &&
                                 (
                                     <FormControl fullWidth>
-                                        <InputLabel id='Department'>Department</InputLabel>
+                                        <InputLabel id='birim'>Birim</InputLabel>
                                         <Select
                                             required
                                             name='birim'
                                             id='birim'
                                             labelId='birim'
-                                            label='Department'
+                                            label='Birim'
                                             value={info.birim}
                                             onChange={handleChange}
                                             MenuProps={{
