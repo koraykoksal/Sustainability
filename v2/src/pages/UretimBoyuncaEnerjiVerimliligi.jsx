@@ -6,6 +6,7 @@ import useSusCall from '../hooks/useSustainabilityCall'
 import { Box, Typography } from '@mui/material'
 import UretimBoyuncaEnerjiVerimliligi_Table from '../components/tables/UretimBoyuncaEnerjiVerimliligi_Table'
 import Delete from '../components/modals/Delete'
+import View from '../components/modals/View'
 
 
 const UretimBoyuncaEnerjiVerimliligi = () => {
@@ -42,7 +43,7 @@ const UretimBoyuncaEnerjiVerimliligi = () => {
 
 
   useEffect(() => {
-    get_DataFromFirebase(state.address)
+    get_DataFromFirebase(state.title)
   }, [])
 
 
@@ -73,9 +74,9 @@ const UretimBoyuncaEnerjiVerimliligi = () => {
   return (
     <div>
 
-      <Box sx={{ py: 10 }}>
+      <Box sx={{ py: 15 }}>
 
-        <Typography align='center' letterSpacing={3}>{state.title}</Typography>
+        <Typography align='center' letterSpacing={3} fontWeight={700}>{state.title}</Typography>
 
 
         {
@@ -89,7 +90,7 @@ const UretimBoyuncaEnerjiVerimliligi = () => {
 
 
       <Delete info={info} openDel={openDel} handleCloseDel={handleCloseDel}/>
-
+      <View info={info} open={open} handleClose={handleClose}/>
     </div>
   )
 }

@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react'
 import { Box, Button, Card, CardContent, CardMedia, Container, Typography } from '@mui/material'
 import Diger_Table from '../components/tables/Diger_Table'
 import Delete from '../components/modals/Delete'
+import View from '../components/modals/View'
 
 
 const Diger = () => {
@@ -40,7 +41,7 @@ const Diger = () => {
   const handleCloseDel = () => setOpenDel(false)
 
   useEffect(() => {
-    get_DataFromFirebase(state.address)
+    get_DataFromFirebase(state.title)
   }, [])
 
   useEffect(() => {
@@ -71,22 +72,23 @@ const Diger = () => {
     <div>
 
 
-      <Box sx={{ py: 10 }}>
+      <Box sx={{ py: 15 }}>
 
-        <Typography align='center' letterSpacing={3}>{state.title}</Typography>
+        <Typography align='center' letterSpacing={3} fontWeight={700}>{state.title}</Typography>
 
 
         {
           loading ?
             <div className='loader' style={{ margin: 'auto', marginTop: 100 }}></div>
             :
-            <Diger_Table data={data} setInfo={setInfo} handleOpenDel={handleOpenDel} />
+            <Diger_Table data={data} setInfo={setInfo} handleOpenDel={handleOpenDel} handleOpen={handleOpen}/>
         }
 
       </Box>
 
 
       <Delete info={info} openDel={openDel} handleCloseDel={handleCloseDel}/>
+      <View info={info} open={open} handleClose={handleClose}/>
 
     </div>
   )

@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux'
 import { Box, Typography } from '@mui/material'
 import DongusellikGeriDonusumAtikYonetimi_Table from '../components/tables/DongusellikGeriDonusumAtikYonetimi_Table'
 import Delete from '../components/modals/Delete'
+import View from '../components/modals/View'
 
 const DongusellikGeriDonusumAtikYonetimi = () => {
 
@@ -39,7 +40,7 @@ const DongusellikGeriDonusumAtikYonetimi = () => {
   const handleCloseDel = () => setOpenDel(false)
 
   useEffect(() => {
-    get_DataFromFirebase(state.address)
+    get_DataFromFirebase(state.title)
   }, [])
 
   useEffect(() => {
@@ -69,9 +70,9 @@ const DongusellikGeriDonusumAtikYonetimi = () => {
   return (
     <div>
 
-      <Box sx={{ py: 10 }}>
+      <Box sx={{ py: 15 }}>
 
-        <Typography align='center' letterSpacing={3}>{state.title}</Typography>
+        <Typography align='center' letterSpacing={3} fontWeight={700}>{state.title}</Typography>
 
 
         {
@@ -84,7 +85,7 @@ const DongusellikGeriDonusumAtikYonetimi = () => {
       </Box>
 
       <Delete info={info} openDel={openDel} handleCloseDel={handleCloseDel}/>
-
+      <View info={info} open={open} handleClose={handleClose}/>
     </div>
   )
 }

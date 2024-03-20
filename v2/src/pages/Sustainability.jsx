@@ -49,7 +49,7 @@ const Sustainability = () => {
             tel: state.tel,
             bonnaUsr:state.bonnaUsr,
             userType:state.userType,
-            title:info
+            title:info,
         })
 
     }
@@ -74,7 +74,7 @@ const Sustainability = () => {
                 state?.id ?
                     (
                         <>
-                            <Sustainability_Data handleChange={handleChange} setInfo={setInfo} setSusData={setSusData} HandleOpen={HandleOpen} />
+                            <Sustainability_Data handleChange={handleChange} info={info} setInfo={setInfo} setSusData={setSusData} HandleOpen={HandleOpen} />
 
                             <Sustainability_Modal open={open} HandleClose={HandleClose} info={info} handleChange={handleChange} handleChangeFile={handleChangeFile} susData={susData} state={state} setFiles={setFiles} setSusData={setSusData} files={files} />
                         </>

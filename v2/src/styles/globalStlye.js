@@ -10,7 +10,8 @@ import greenLine from "../assets/pics/greenLine.svg"
 
 export  const colors={
   mavi:'#141893',
-  yesil:'#588247'
+  yesil:'#588247',
+  kırmızı:'#fd0019'
 }
 
 export const modalStyles = {

@@ -59,8 +59,6 @@ const useFeedbackCall = () => {
             onValue(starCountRef, (snapshot) => {
                 const data = snapshot.val();
 
-                // console.log(data)
-
                 if (data == null || data == undefined) {
                     console.log("firebase data null geliyor:", data)
                 }
@@ -92,8 +90,6 @@ const useFeedbackCall = () => {
             onValue(starCountRef, (snapshot) => {
                 const data = snapshot.val();
 
-                // console.log(data)
-
                 if (data == null || data == undefined) {
                     console.log("firebase data null geliyor:", data)
                 }
@@ -124,8 +120,6 @@ const useFeedbackCall = () => {
             const starCountRef = ref(db, `${address}/`);
             onValue(starCountRef, (snapshot) => {
                 const data = snapshot.val();
-
-                // console.log(data)
 
                 if (data == null || data == undefined) {
                     console.log("firebase data null geliyor:", data)

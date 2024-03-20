@@ -6,6 +6,7 @@ import { useLocation } from 'react-router'
 import SosyalKapsamVeInsan_Table from '../components/tables/SosyalKapsamVeInsan_Table'
 import { Box, Typography } from '@mui/material'
 import Delete from '../components/modals/Delete'
+import View from '../components/modals/View'
 
 const SosyalKapsamVeInsan = () => {
 
@@ -41,7 +42,7 @@ const SosyalKapsamVeInsan = () => {
 
 
   useEffect(() => {
-    get_DataFromFirebase(state.address)
+    get_DataFromFirebase(state.title)
   }, [])
 
   useEffect(() => {
@@ -67,16 +68,12 @@ const SosyalKapsamVeInsan = () => {
 
   }, [sustainabilityData])
 
-
-  console.log(state)
-  console.log(sustainabilityData)
-
   return (
     <div>
 
-      <Box sx={{ py: 10 }}>
+      <Box sx={{ py: 15 }}>
 
-        <Typography align='center' letterSpacing={3}>{state.title}</Typography>
+        <Typography align='center' letterSpacing={3} fontWeight={700}>{state.title}</Typography>
 
 
         {
@@ -89,6 +86,7 @@ const SosyalKapsamVeInsan = () => {
       </Box>
 
       <Delete info={info} openDel={openDel} handleCloseDel={handleCloseDel}/>
+      <View info={info} open={open} handleClose={handleClose}/>
 
     </div>
   )

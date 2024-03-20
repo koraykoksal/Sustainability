@@ -51,7 +51,7 @@ const urlData = [
 ]
 
 
-const Sustainability = ({ setInfo, HandleOpen }) => {
+const Sustainability = ({ info,setInfo, HandleOpen }) => {
 
 
     const handleClick = (param) => {
@@ -82,9 +82,9 @@ const Sustainability = ({ setInfo, HandleOpen }) => {
 
                             <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2, alignItems: 'center', p: 2 }}>
 
-                                <img src={item.icon} alt="Logo" loading='lazy' width={220} className='sustainabilityIcon' onClick={() => handleClick(item.address)} />
+                                <img src={item.icon} alt="Logo" loading='lazy' width={220} className='sustainabilityIcon' onClick={() => handleClick(item.title)} />
 
-                                <Button variant='outlined' color='success' sx={{ textTransform: 'none', fontSize: '18px', fontFamily: 'Catamaran' }} onClick={() => { handleClick(item.address) }}>{item.title}</Button>
+                                <Button variant='outlined' color='success' sx={{ textTransform: 'none', fontSize: '18px', fontFamily: 'Catamaran' }} onClick={() => { handleClick(item.title) }}>{item.title}</Button>
 
                             </Box>
 

@@ -7,7 +7,7 @@ import { MdEdit, MdDeleteForever } from "react-icons/md";
 
 
 
-const OfislerdeEnerjiVerimliligi_Table = ({ data, setInfo, handleOpenDel }) => {
+const OfislerdeEnerjiVerimliligi_Table = ({ data, setInfo, handleOpenDel,handleOpen }) => {
 
 
     const dataGrid_Columns = [
@@ -38,6 +38,7 @@ const OfislerdeEnerjiVerimliligi_Table = ({ data, setInfo, handleOpenDel }) => {
                     bonnaUsr,
                     createdDate,
                     title,
+                    aciklama
                 }
             }) => {
                 return [
@@ -47,7 +48,7 @@ const OfislerdeEnerjiVerimliligi_Table = ({ data, setInfo, handleOpenDel }) => {
                         label='Show'
                         icon={<FaEye size={23} style={{ cursor: 'pointer', color: 'darkblue' }} />}
                         onClick={() => {
-                            // handleOpen_oneritalep()
+                            handleOpen()
                             setInfo({
                                 id,
                                 name,
@@ -59,6 +60,7 @@ const OfislerdeEnerjiVerimliligi_Table = ({ data, setInfo, handleOpenDel }) => {
                                 bonnaUsr,
                                 createdDate,
                                 title,
+                                aciklama
                             })
 
                         }}
@@ -79,6 +81,7 @@ const OfislerdeEnerjiVerimliligi_Table = ({ data, setInfo, handleOpenDel }) => {
                                 bonnaUsr,
                                 createdDate,
                                 title,
+                                aciklama
                             })
                         }} />}
 

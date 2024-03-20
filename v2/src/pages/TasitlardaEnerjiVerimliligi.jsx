@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react'
 import { Box, Typography } from '@mui/material'
 import TasitlardaEnerjiVerimliligi_Table from '../components/tables/TasitlardaEnerjiVerimliligi_Table'
 import Delete from '../components/modals/Delete'
+import View from '../components/modals/View'
 
 
 const TasitlardaEnerjiVerimliligi = () => {
@@ -42,7 +43,7 @@ const TasitlardaEnerjiVerimliligi = () => {
 
 
   useEffect(() => {
-    get_DataFromFirebase(state.address)
+    get_DataFromFirebase(state.title)
   }, [])
 
   useEffect(() => {
@@ -72,9 +73,9 @@ const TasitlardaEnerjiVerimliligi = () => {
   return (
     <div>
 
-      <Box sx={{ py: 10 }}>
+      <Box sx={{ py: 15 }}>
 
-        <Typography align='center' letterSpacing={3}>{state.title}</Typography>
+        <Typography align='center' letterSpacing={3} fontWeight={700}>{state.title}</Typography>
 
 
         {
@@ -87,7 +88,7 @@ const TasitlardaEnerjiVerimliligi = () => {
       </Box>
 
       <Delete info={info} openDel={openDel} handleCloseDel={handleCloseDel}/>
-
+      <View info={info} open={open} handleClose={handleClose}/>
     </div>
   )
 }

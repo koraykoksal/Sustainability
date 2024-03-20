@@ -27,6 +27,7 @@ const Delete = ({ info, openDel, handleCloseDel }) => {
         e.preventDefault()
         removeFirebaseData(info)
         handleCloseDel()
+        get_DataFromFirebase(info.title)
     }
 
    

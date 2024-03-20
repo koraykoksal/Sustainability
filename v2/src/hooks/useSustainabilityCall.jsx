@@ -94,12 +94,12 @@ const useSusCall = () => {
                 if (data != null || data != undefined) {
 
                     const result = Object.keys(data).map(key => ({ id: key, ...data[key] }));
-                    console.log("hook result : ",result)
+                   
                     dispatch(fetchSustainabilityData(result))
                 }
                 else{
                     dispatch(fetchSustainabilityData([]))
-                    toastWarnNotify('Kayıt Bulunmuyor !')
+                    // toastWarnNotify('Kayıt Bulunmuyor !')
                 }
             })
 
@@ -118,7 +118,7 @@ const useSusCall = () => {
             remove(dbRef(db, `sustainability/${info.title}/${info.id}`))
             toastSuccessNotify('Data Deleted')
             // delete işlemi
-            get_DataFromFirebase(info.title)
+            // get_DataFromFirebase(info.title)
 
         } catch (error) {
             toastErrorNotify('No Delete Data')

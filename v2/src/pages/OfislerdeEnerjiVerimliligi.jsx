@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux'
 import { Box, Button, Card, CardContent, CardMedia, Container, Typography } from '@mui/material'
 import OfislerdeEnerjiVerimliligi_Table from '../components/tables/OfislerdeEnerjiVerimliligi_Table'
 import Delete from '../components/modals/Delete'
+import View from '../components/modals/View'
 
 
 const OfislerdeEnerjiVerimliligi = () => {
@@ -41,7 +42,7 @@ const OfislerdeEnerjiVerimliligi = () => {
 
 
   useEffect(() => {
-    get_DataFromFirebase(state.address)
+    get_DataFromFirebase(state.title)
   }, [])
 
   useEffect(() => {
@@ -72,22 +73,22 @@ const OfislerdeEnerjiVerimliligi = () => {
   return (
     <div>
 
-      <Box sx={{ py: 10 }}>
+      <Box sx={{ py: 15 }}>
 
-        <Typography align='center' letterSpacing={3}>{state.title}</Typography>
+        <Typography align='center' letterSpacing={3} fontWeight={700}>{state.title}</Typography>
 
 
         {
           loading ?
             <div className='loader' style={{ margin: 'auto', marginTop: 100 }}></div>
             :
-            <OfislerdeEnerjiVerimliligi_Table data={data} setInfo={setInfo} handleOpenDel={handleOpenDel} />
+            <OfislerdeEnerjiVerimliligi_Table data={data} setInfo={setInfo} handleOpenDel={handleOpenDel} handleOpen={handleOpen}/>
         }
 
       </Box>
 
       <Delete info={info} openDel={openDel} handleCloseDel={handleCloseDel} />
-
+        <View info={info} open={open} handleClose={handleClose}/>
     </div>
   )
 }

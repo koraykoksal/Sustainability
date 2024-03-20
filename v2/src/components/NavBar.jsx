@@ -15,11 +15,10 @@ import logoBonna from "../assets/img/logobonna_w.png"
 import { CardMedia, ListItemButton, ListItemText } from '@mui/material';
 import { useSelector } from 'react-redux';
 import { Outlet, useNavigate } from 'react-router';
-import { IoIosLogOut } from "react-icons/io";
+import { CgLogOff } from "react-icons/cg";
 import { IoHomeOutline } from "react-icons/io5";
 import useAuthCall from '../hooks/useAuthCall';
-import { AiFillHome } from "react-icons/ai";
-import { IoLogOut } from "react-icons/io5";
+
 
 
 const pages = [
@@ -225,7 +224,7 @@ const NavBar = () => {
           {
             currentUser && <Box sx={{ display: { xs: 'none', md: 'flex' }, justifyContent: 'center', gap: 3, mr: 1 }}>
               <Typography>{currentUser}</Typography>
-              <IoIosLogOut size={25} color='#B31312' cursor='pointer' onClick={() => logout()} />
+              <CgLogOff size={25} color='#fd0019' cursor='pointer' onClick={() => logout()} />
             </Box>
           }
 

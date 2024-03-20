@@ -6,7 +6,7 @@ import { FaEye } from "react-icons/fa";
 import { MdEdit, MdDeleteForever } from "react-icons/md";
 
 
-const Diger_Table = ({ data, handleOpenDel, setInfo }) => {
+const Diger_Table = ({ data, handleOpenDel, setInfo ,handleOpen}) => {
 
 
     const dataGrid_Columns = [
@@ -47,7 +47,7 @@ const Diger_Table = ({ data, handleOpenDel, setInfo }) => {
                         label='Show'
                         icon={<FaEye size={23} style={{ cursor: 'pointer', color: 'darkblue' }} />}
                         onClick={() => {
-                            // handleOpen_oneritalep()
+                            handleOpen()
                             setInfo({
                                 id,
                                 name,
