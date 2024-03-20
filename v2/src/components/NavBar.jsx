@@ -37,26 +37,32 @@ const pages = [
 const reporPages = [
   {
     title: "Ofislerde Enerji Verimliliği",
+    address: "Ofislerde Enerji Verimliligi",
     url: '/ofislerdeEnerjiVerimliligi'
   },
   {
     title: "Üretim Boyunca Enerji Verimliliği",
+    address: "Uretim Boyunca Enerji Verimliligi",
     url: '/uretimBoyuncaEnerjiVerimliligi'
   },
   {
     title: "Taşıtlarda Enerji Verimliliği",
+    address: "Tasitlarda Enerji Verimliligi",
     url: '/tasitlardaEnerjiVerimliligi'
   },
   {
-    title: "Sosyal Kpsam ve İnsan",
+    title: "Sosyal Kapsam ve İnsan",
+    address: "Sosyal Kapsam ve Insan",
     url: '/sosyalKapsamVeInsan'
   },
   {
     title: "Döngüsellik-Geri Dönüşüm-Atık Yönetimi",
+    address: "Dongusellik, Geri Donusum, Atik Yonetimi",
     url: '/dongusellikGeriDonusumAtikYonetimi'
   },
   {
     title: "Diğer",
+    address: "Diger",
     url: '/diger'
   }
 ];

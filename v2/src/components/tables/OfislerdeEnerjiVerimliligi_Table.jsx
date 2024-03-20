@@ -7,21 +7,7 @@ import { MdEdit, MdDeleteForever } from "react-icons/md";
 
 
 
-const OfislerdeEnerjiVerimliligi_Table = ({ sustainabilityData }) => {
-
-    const [info, setInfo] = useState({
-        id: "",
-        name: "",
-        surname: "",
-        email: "",
-        tel: "",
-        birim: "",
-        userType: "",
-        bonnaUsr: "",
-        createdDate: "",
-        title: ""
-
-    })
+const OfislerdeEnerjiVerimliligi_Table = ({ data, setInfo, handleOpenDel }) => {
 
 
     const dataGrid_Columns = [
@@ -33,7 +19,75 @@ const OfislerdeEnerjiVerimliligi_Table = ({ sustainabilityData }) => {
         //   align: "center",
         //   flex: 1,
         // },
+        {
+            field: "actions",
+            headerName: "Aksiyon",
+            minWidth: 120,
+            headerAlign: "center",
+            align: "center",
+            flex: 1,
+            renderCell: ({
+                id,
+                row: {
+                    name,
+                    surname,
+                    email,
+                    tel,
+                    birim,
+                    userType,
+                    bonnaUsr,
+                    createdDate,
+                    title,
+                }
+            }) => {
+                return [
 
+                    <GridActionsCellItem
+                        key={'show'}
+                        label='Show'
+                        icon={<FaEye size={23} style={{ cursor: 'pointer', color: 'darkblue' }} />}
+                        onClick={() => {
+                            // handleOpen_oneritalep()
+                            setInfo({
+                                id,
+                                name,
+                                surname,
+                                email,
+                                tel,
+                                birim,
+                                userType,
+                                bonnaUsr,
+                                createdDate,
+                                title,
+                            })
+
+                        }}
+                    />,
+                    <GridActionsCellItem
+                        key={'delete'}
+                        label='Delete'
+                        icon={<MdDeleteForever size={23} style={{ cursor: 'pointer', color: 'red' }} onClick={() => {
+                            handleOpenDel()
+                            setInfo({
+                                id,
+                                name,
+                                surname,
+                                email,
+                                tel,
+                                birim,
+                                userType,
+                                bonnaUsr,
+                                createdDate,
+                                title,
+                            })
+                        }} />}
+
+                    />
+
+
+                ]
+            },
+        },
         {
             field: "name",
             headerName: "Ad",
@@ -61,6 +115,22 @@ const OfislerdeEnerjiVerimliligi_Table = ({ sustainabilityData }) => {
         {
             field: "email",
             headerName: "Mail",
+            minWidth: 150,
+            headerAlign: "center",
+            align: "center",
+            flex: 1,
+        },
+        {
+            field: "bonnaUsr",
+            headerName: "Bonna Çalışanı",
+            minWidth: 150,
+            headerAlign: "center",
+            align: "center",
+            flex: 1,
+        },
+        {
+            field: "userType",
+            headerName: "Kullanıcı Tipi",
             minWidth: 150,
             headerAlign: "center",
             align: "center",
@@ -98,96 +168,7 @@ const OfislerdeEnerjiVerimliligi_Table = ({ sustainabilityData }) => {
             align: "center",
             flex: 1,
         },
-        {
-            field: "actions",
-            headerName: "Aksiyon",
-            minWidth: 120,
-            headerAlign: "center",
-            align: "center",
-            flex: 1,
-            renderCell: ({
-                id,
-                row: {
-                    name,
-                    surname,
-                    email,
-                    tel,
-                    birim,
-                    userType,
-                    bonnaUsr,
-                    createdDate,
-                    title
-
-                }
-            }) => {
-                return [
-
-                    <GridActionsCellItem
-                        key={'show'}
-                        label='Show'
-                        icon={<FaEye size={23} style={{ cursor: 'pointer', color: 'darkblue' }} />}
-                        onClick={() => {
-                            // handleOpen_oneritalep()
-                            setInfo({
-                                id,
-                                name,
-                                surname,
-                                email,
-                                tel,
-                                birim,
-                                userType,
-                                bonnaUsr,
-                                createdDate,
-                                title
-                            })
-
-                        }}
-                    />,
-                    <GridActionsCellItem
-                        key={'edit'}
-                        label='Edit'
-                        icon={<MdEdit size={23} style={{ cursor: 'pointer', color: '#E8C872' }} onClick={() => {
-                            // handleOpen_action()
-                            setInfo({
-                                id,
-                                name,
-                                surname,
-                                email,
-                                tel,
-                                birim,
-                                userType,
-                                bonnaUsr,
-                                createdDate,
-                                title
-                            })
-                        }} />}
-
-                    />,
-                    <GridActionsCellItem
-                        key={'delete'}
-                        label='Delete'
-                        icon={<MdDeleteForever size={23} style={{ cursor: 'pointer', color: 'red' }} onClick={() => {
-                            // handleOpen_delete()
-                            setInfo({
-                                id,
-                                name,
-                                surname,
-                                email,
-                                tel,
-                                birim,
-                                userType,
-                                bonnaUsr,
-                                createdDate,
-                                title
-                            })
-                        }} />}
-
-                    />
-
-
-                ]
-            },
-        },
+        
 
     ];
 
@@ -199,7 +180,7 @@ const OfislerdeEnerjiVerimliligi_Table = ({ sustainabilityData }) => {
             <Box p={3}>
                 <DataGrid
                     columns={dataGrid_Columns}
-                    rows={sustainabilityData}
+                    rows={data}
                     initialState={{
                         pagination: {
                             paginationModel: {

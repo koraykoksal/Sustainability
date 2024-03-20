@@ -44,7 +44,6 @@ const Sustainability_Modal = ({ open, HandleClose, info, handleChange, handleCha
     }
 
 
-
     return (
         <div>
 
@@ -71,6 +70,7 @@ const Sustainability_Modal = ({ open, HandleClose, info, handleChange, handleCha
                                 required
                                 fullWidth
                                 multiline
+                                autoFocus='true'
                                 rows={5}
                                 name='aciklama'
                                 id='aciklama'

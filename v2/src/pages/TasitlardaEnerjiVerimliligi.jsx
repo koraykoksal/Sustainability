@@ -5,18 +5,68 @@ import useSusCall from '../hooks/useSustainabilityCall'
 import { useEffect, useState } from 'react'
 import { Box, Typography } from '@mui/material'
 import TasitlardaEnerjiVerimliligi_Table from '../components/tables/TasitlardaEnerjiVerimliligi_Table'
+import Delete from '../components/modals/Delete'
 
 
 const TasitlardaEnerjiVerimliligi = () => {
 
   const { sustainabilityData,loading } = useSelector((state) => state.sustainability)
-
+  const [data, setData] = useState([])
   const { state } = useLocation()
   const { get_DataFromFirebase } = useSusCall()
 
+
+  const [info, setInfo] = useState({
+    id: "",
+    name: "",
+    surname: "",
+    email: "",
+    tel: "",
+    birim: "",
+    userType: "",
+    bonnaUsr: "",
+    createdDate: "",
+    title: "",
+    bonnaUsr: "",
+    userType: ""
+  })
+
+  const [open, setOpen] = useState(false)
+  const handleOpen = () => setOpen(true)
+  const handleClose = () => setOpen(false)
+
+
+  const [openDel, setOpenDel] = useState(false)
+  const handleOpenDel = () => setOpenDel(true)
+  const handleCloseDel = () => setOpenDel(false)
+
+
   useEffect(() => {
-    get_DataFromFirebase(state.title)
+    get_DataFromFirebase(state.address)
   }, [])
+
+  useEffect(() => {
+
+    //!  "Cannot assign to read only property '0' of object '[object Array]'"  hatası alındığında dizinin değiştirilemez olduğu anlamına gelir. Mevcut dizinin kopyasını oluşturarak işlem yapılır.
+    const sortData = [...sustainabilityData]
+
+    // Tarih stringlerini Date objelerine dönüştürerek sıralama
+    sortData.sort((a, b) => {
+      // Tarih formatını ayırma ve yeni Date objesi oluşturma
+      const datePartsA = a.createdDate.split(' ')[0].split('-');
+      const timePartsA = a.createdDate.split(' ')[1].split(':');
+      const dateA = new Date(datePartsA[2], datePartsA[1] - 1, datePartsA[0], timePartsA[0], timePartsA[1]);
+
+      const datePartsB = b.createdDate.split(' ')[0].split('-');
+      const timePartsB = b.createdDate.split(' ')[1].split(':');
+      const dateB = new Date(datePartsB[2], datePartsB[1] - 1, datePartsB[0], timePartsB[0], timePartsB[1]);
+
+      return dateB - dateA;
+    });
+
+    setData(sortData)
+
+  }, [sustainabilityData])
 
 
   return (
@@ -31,10 +81,12 @@ const TasitlardaEnerjiVerimliligi = () => {
           loading ?
             <div className='loader' style={{ margin: 'auto', marginTop: 100 }}></div>
             :
-            <TasitlardaEnerjiVerimliligi_Table sustainabilityData={sustainabilityData} />
+            <TasitlardaEnerjiVerimliligi_Table sustainabilityData={sustainabilityData} data={data} handleOpenDel={handleOpenDel} setInfo={setInfo}/>
         }
 
       </Box>
+
+      <Delete info={info} openDel={openDel} handleCloseDel={handleCloseDel}/>
 
     </div>
   )

@@ -42,12 +42,13 @@ const Sustainability = () => {
         setSusData({
             ...susData,
             [name]: value,
-            id: state.id,
             name: state.name,
             surname: state.surname,
             email: state.email,
             birim: state.birim,
             tel: state.tel,
+            bonnaUsr:state.bonnaUsr,
+            userType:state.userType,
             title:info
         })
 

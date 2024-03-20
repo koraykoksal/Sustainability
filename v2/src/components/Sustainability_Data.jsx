@@ -12,32 +12,38 @@ import img6 from "../assets/pics/sanayide-enerji-verimliligi.png"
 const urlData = [
     {
         title: "Ofislerde Enerji Verimliliği",
+        address: "Ofislerde Enerji Verimliligi",
         url: "/yonetimofisenerjiverimliligi",
         icon: img3,
     },
     {
-        title: "Üretim boyunca Enerji Verimliliği",
+        title: "Üretim Boyunca Enerji Verimliliği",
+        address: "Uretim Boyunca Enerji Verimliligi",
         url: "/prosesenerjiverimliligi",
         icon: img1,
     },
     {
         title: "Taşıtlarda Enerji Verimliliği",
+        address: "Tasitlarda Enerji Verimliligi",
         url: "/tasitenerjiverimliligi",
         icon: img2,
     },
 
     {
         title: "Sosyal Kapsam ve İnsan",
+        address: "Sosyal Kapsam ve Insan",
         url: "/sosyalkapsam",
         icon: img4,
     },
     {
         title: "Döngüsellik, Geri Dönüşüm, Atık Yönetimi",
+        address: "Dongusellik, Geri Donusum, Atik Yonetimi",
         url: "/dongusellik",
         icon: img5,
     },
     {
         title: "Diğer",
+        address: "Diger",
         url: "/sanayideenerjiverimliligi",
         icon: img6,
     },
@@ -76,9 +82,9 @@ const Sustainability = ({ setInfo, HandleOpen }) => {
 
                             <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2, alignItems: 'center', p: 2 }}>
 
-                                <img src={item.icon} alt="Logo" loading='lazy' width={220} className='sustainabilityIcon' onClick={() => handleClick(item.title)} />
+                                <img src={item.icon} alt="Logo" loading='lazy' width={220} className='sustainabilityIcon' onClick={() => handleClick(item.address)} />
 
-                                <Button variant='outlined' color='success' sx={{ textTransform: 'none', fontSize: '18px', fontFamily: 'Catamaran' }} onClick={() => { handleClick(item.title) }}>{item.title}</Button>
+                                <Button variant='outlined' color='success' sx={{ textTransform: 'none', fontSize: '18px', fontFamily: 'Catamaran' }} onClick={() => { handleClick(item.address) }}>{item.title}</Button>
 
                             </Box>
 
