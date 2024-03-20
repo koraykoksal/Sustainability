@@ -68,7 +68,6 @@ const Sustainability = () => {
 
 
 
-    console.log(susData)
 
     return (
         <div>

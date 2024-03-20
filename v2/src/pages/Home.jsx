@@ -55,8 +55,6 @@ export const Home = () => {
     createdDate: dateFormat()
   })
 
-
-  console.log(info)
   
 
   return (
