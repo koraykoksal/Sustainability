@@ -6,7 +6,7 @@ import { FaEye } from "react-icons/fa";
 import { MdEdit, MdDeleteForever } from "react-icons/md";
 
 
-const DongusellikGeriDonusumAtikYonetimi_Table = ({data,handleOpenDel,setInfo}) => {
+const DongusellikGeriDonusumAtikYonetimi_Table = ({data,handleOpenDel,setInfo,handleOpen}) => {
 
 
 
@@ -37,8 +37,8 @@ const DongusellikGeriDonusumAtikYonetimi_Table = ({data,handleOpenDel,setInfo}) 
                     userType,
                     bonnaUsr,
                     createdDate,
-                    title
-
+                    title,
+                    aciklama
                 }
             }) => {
                 return [
@@ -48,7 +48,7 @@ const DongusellikGeriDonusumAtikYonetimi_Table = ({data,handleOpenDel,setInfo}) 
                         label='Show'
                         icon={<FaEye size={23} style={{ cursor: 'pointer', color: 'darkblue' }} />}
                         onClick={() => {
-                            // handleOpen_oneritalep()
+                            handleOpen()
                             setInfo({
                                 id,
                                 name,
@@ -59,7 +59,8 @@ const DongusellikGeriDonusumAtikYonetimi_Table = ({data,handleOpenDel,setInfo}) 
                                 userType,
                                 bonnaUsr,
                                 createdDate,
-                                title
+                                title,
+                                aciklama
                             })
 
                         }}
@@ -79,7 +80,8 @@ const DongusellikGeriDonusumAtikYonetimi_Table = ({data,handleOpenDel,setInfo}) 
                                 userType,
                                 bonnaUsr,
                                 createdDate,
-                                title
+                                title,
+                                aciklama
                             })
                         }} />}
 

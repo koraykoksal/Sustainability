@@ -36,7 +36,8 @@ const Diger_Table = ({ data, handleOpenDel, setInfo ,handleOpen}) => {
                     userType,
                     bonnaUsr,
                     createdDate,
-                    title
+                    title,
+                    aciklama
 
                 }
             }) => {
@@ -58,7 +59,8 @@ const Diger_Table = ({ data, handleOpenDel, setInfo ,handleOpen}) => {
                                 userType,
                                 bonnaUsr,
                                 createdDate,
-                                title
+                                title,
+                                aciklama
                             })
 
                         }}
@@ -78,7 +80,8 @@ const Diger_Table = ({ data, handleOpenDel, setInfo ,handleOpen}) => {
                                 userType,
                                 bonnaUsr,
                                 createdDate,
-                                title
+                                title,
+                                aciklama
                             })
                         }} />}
 

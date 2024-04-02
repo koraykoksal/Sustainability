@@ -31,16 +31,16 @@ export const Home = () => {
     setInfo({ ...info, [name]: value })
   }
 
-  const handleIsCheck = (e,param) => {
+  const handleIsCheck = (e, param) => {
     const { checked } = e.target
-    if(checked){
+    if (checked) {
       //bonnaUsr bilgisi true ise type bilgisi silinir.Type bilgisi müşteri, tedarikçi ve diğer kişiler için geçerlidir.
-      setInfo({...info,['bonnaUsr']:checked,['userType']:""}) 
+      setInfo({ ...info, ['bonnaUsr']: checked, ['userType']: "" })
     }
-    else{
-      setInfo({...info,['bonnaUsr']:checked,['birim']:""})
+    else {
+      setInfo({ ...info, ['bonnaUsr']: checked, ['birim']: "" })
     }
- 
+
   }
 
   const [info, setInfo] = useState({
@@ -50,12 +50,12 @@ export const Home = () => {
     email: "",
     tel: "",
     birim: "",
-    userType:"",
+    userType: "",
     bonnaUsr: false,
     createdDate: dateFormat()
   })
 
-  
+
 
   return (
 
@@ -72,15 +72,18 @@ export const Home = () => {
           </Box>
 
           {/* kendini tanıt */}
-          <Box alignItems={'center'} display={'flex'}>
+          <Box alignItems={'center'} display={'flex'} >
 
-            <Button
-              variant='contained'
-              sx={{ width: '300px', m: 'auto', textTransform: 'none', letterSpacing: 2 }}
-              onClick={HandleOpen}
-            >
-              Kendini Tanıt
-            </Button>
+            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+              <Typography variant='inherit' align='center'>Sürdürülebilirlik platformu için</Typography>
+              <Button
+                variant='contained'
+                sx={{ width: '300px', m: 'auto', textTransform: 'none', letterSpacing: 2 }}
+                onClick={HandleOpen}
+              >
+                Kendini Tanıt
+              </Button>
+            </Box>
 
           </Box>
 

@@ -6,7 +6,7 @@ import { FaEye } from "react-icons/fa";
 import { MdEdit, MdDeleteForever } from "react-icons/md";
 
 
-const SosyalKapsamVeInsan_Table = ({ data,setInfo,handleOpenDel }) => {
+const SosyalKapsamVeInsan_Table = ({ data,setInfo,handleOpenDel,handleOpen }) => {
 
 
     const dataGrid_Columns = [
@@ -36,8 +36,8 @@ const SosyalKapsamVeInsan_Table = ({ data,setInfo,handleOpenDel }) => {
                     userType,
                     bonnaUsr,
                     createdDate,
-                    title
-
+                    title,
+                    aciklama
                 }
             }) => {
                 return [
@@ -47,7 +47,7 @@ const SosyalKapsamVeInsan_Table = ({ data,setInfo,handleOpenDel }) => {
                         label='Show'
                         icon={<FaEye size={23} style={{ cursor: 'pointer', color: 'darkblue' }} />}
                         onClick={() => {
-                            // handleOpen_oneritalep()
+                            handleOpen()
                             setInfo({
                                 id,
                                 name,
@@ -58,7 +58,8 @@ const SosyalKapsamVeInsan_Table = ({ data,setInfo,handleOpenDel }) => {
                                 userType,
                                 bonnaUsr,
                                 createdDate,
-                                title
+                                title,
+                                aciklama
                             })
 
                         }}
@@ -78,7 +79,8 @@ const SosyalKapsamVeInsan_Table = ({ data,setInfo,handleOpenDel }) => {
                                 userType,
                                 bonnaUsr,
                                 createdDate,
-                                title
+                                title,
+                                aciklama
                             })
                         }} />}
 

@@ -95,7 +95,7 @@ const Who = ({ open, HandleClose, handleChange, info, setInfo, setBonnaUser, bon
                                 info.bonnaUsr == false ?
                                     (
                                         <FormControl fullWidth>
-                                            <InputLabel id='userType'>Tip</InputLabel>
+                                            <InputLabel id='userType'>Paydaş Tipi</InputLabel>
                                             <Select
                                                 required
                                                 name='userType'

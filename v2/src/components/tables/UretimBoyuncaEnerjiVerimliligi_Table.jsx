@@ -6,7 +6,7 @@ import { FaEye } from "react-icons/fa";
 import { MdEdit, MdDeleteForever } from "react-icons/md";
 
 
-const UretimBoyuncaEnerjiVerimliligi_Table = ({data,handleOpenDel,setInfo}) => {
+const UretimBoyuncaEnerjiVerimliligi_Table = ({data,handleOpenDel,setInfo,handleOpen}) => {
 
 
 
@@ -37,7 +37,8 @@ const UretimBoyuncaEnerjiVerimliligi_Table = ({data,handleOpenDel,setInfo}) => {
                     userType,
                     bonnaUsr,
                     createdDate,
-                    title
+                    title,
+                    aciklama
 
                 }
             }) => {
@@ -48,7 +49,7 @@ const UretimBoyuncaEnerjiVerimliligi_Table = ({data,handleOpenDel,setInfo}) => {
                         label='Show'
                         icon={<FaEye size={23} style={{ cursor: 'pointer', color: 'darkblue' }} />}
                         onClick={() => {
-                            // handleOpen_oneritalep()
+                            handleOpen()
                             setInfo({
                                 id,
                                 name,
@@ -59,7 +60,8 @@ const UretimBoyuncaEnerjiVerimliligi_Table = ({data,handleOpenDel,setInfo}) => {
                                 userType,
                                 bonnaUsr,
                                 createdDate,
-                                title
+                                title,
+                                aciklama
                             })
 
                         }}
@@ -79,7 +81,8 @@ const UretimBoyuncaEnerjiVerimliligi_Table = ({data,handleOpenDel,setInfo}) => {
                                 userType,
                                 bonnaUsr,
                                 createdDate,
-                                title
+                                title,
+                                aciklama
                             })
                         }} />}
 

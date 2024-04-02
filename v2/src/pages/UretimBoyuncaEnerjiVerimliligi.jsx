@@ -83,7 +83,7 @@ const UretimBoyuncaEnerjiVerimliligi = () => {
           loading ?
             <div className='loader' style={{ margin: 'auto', marginTop: 100 }}></div>
             :
-            <UretimBoyuncaEnerjiVerimliligi_Table data={data} handleOpenDel={handleOpenDel} setInfo={setInfo}/>
+            <UretimBoyuncaEnerjiVerimliligi_Table data={data} handleOpenDel={handleOpenDel} setInfo={setInfo} handleOpen={handleOpen}/>
         }
 
       </Box>

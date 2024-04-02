@@ -82,7 +82,7 @@ const TasitlardaEnerjiVerimliligi = () => {
           loading ?
             <div className='loader' style={{ margin: 'auto', marginTop: 100 }}></div>
             :
-            <TasitlardaEnerjiVerimliligi_Table sustainabilityData={sustainabilityData} data={data} handleOpenDel={handleOpenDel} setInfo={setInfo}/>
+            <TasitlardaEnerjiVerimliligi_Table sustainabilityData={sustainabilityData} data={data} handleOpenDel={handleOpenDel} setInfo={setInfo} handleOpen={handleOpen}/>
         }
 
       </Box>

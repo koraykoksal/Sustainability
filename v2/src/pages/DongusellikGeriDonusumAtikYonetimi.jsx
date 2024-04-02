@@ -79,7 +79,7 @@ const DongusellikGeriDonusumAtikYonetimi = () => {
           loading ?
             <div className='loader' style={{ margin: 'auto', marginTop: 100 }}></div>
             :
-            <DongusellikGeriDonusumAtikYonetimi_Table data={data} setInfo={setInfo} handleOpenDel={handleOpenDel}/>
+            <DongusellikGeriDonusumAtikYonetimi_Table data={data} setInfo={setInfo} handleOpenDel={handleOpenDel} handleOpen={handleOpen}/>
         }
 
       </Box>

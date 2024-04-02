@@ -80,7 +80,7 @@ const SosyalKapsamVeInsan = () => {
           loading ?
             <div className='loader' style={{ margin: 'auto', marginTop: 100 }}></div>
             :
-            <SosyalKapsamVeInsan_Table data={data} setInfo={setInfo} handleOpenDel={handleOpenDel} />
+            <SosyalKapsamVeInsan_Table data={data} setInfo={setInfo} handleOpenDel={handleOpenDel} handleOpen={handleOpen}/>
         }
 
       </Box>
